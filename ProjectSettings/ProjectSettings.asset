@@ -807,8 +807,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Nikhil Malankar Game Jam
-  metroPackageVersion: 
+  metroPackageName: NikhilMalankarGameJam
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -816,7 +816,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Nikhil Malankar Game Jam
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Nikhil Malankar Game Jam
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
