@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 
 public class PlayerHelper1 : MonoBehaviour
@@ -9,14 +10,11 @@ public class PlayerHelper1 : MonoBehaviour
     private Vector3 initialPosition;
     private Vector3 targetPosition;
     private bool isMoving = true;
-    public GameObject objectToMoveWith;
-    private Vector3 initialScale;
 
     private void Start()
     {
         initialPosition = transform.position;
         targetPosition = initialPosition + new Vector3(distanceToMove, 0, 0);
-        initialScale = objectToMoveWith.transform.localScale;
     }
 
     private void Update()
@@ -34,19 +32,18 @@ public class PlayerHelper1 : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            // Store the current scale of the objectToMoveWith
-            Vector3 currentScale = new(0.3960396f, 2.424242f, 1);
-
-            // Set the object with the PlayerHelper1 script as the parent of the player object
-            collision.transform.SetParent(transform);
-
-            // Restore the original scale of the objectToMoveWith
-            objectToMoveWith.transform.localScale = currentScale;
+            Debug.Log("player");
+            other.gameObject.transform.position = Vector3.MoveTowards(other.gameObject.transform.position, initialPosition + new Vector3(distanceToMove, 0, 0), moveSpeed * Time.deltaTime);
+            if (Vector3.Distance(other.gameObject.transform.position, targetPosition) < 0.01f)
+            {
+                isMoving = false;
+                Debug.Log("Object has stopped.");
+            }
         }
     }
+
 }
