@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI Points;
 
     public GameObject Gameover;
+    public GameObject WinCanvas;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Gameover.SetActive(false);
+        WinCanvas.SetActive(false);
         startTime = Time.time;
     }
     private void Update()
@@ -43,5 +45,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         Gameover.SetActive(true);
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 0f;
+        WinCanvas.SetActive(true);
     }
 }
