@@ -26,4 +26,13 @@ public class Enemy1 : MonoBehaviour
         // Apply the new position to the object's Transform
         transform.position = newPosition;
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
 }
