@@ -45,8 +45,20 @@ public class GameManager : MonoBehaviour
 
         string timeString = string.Format("{0:00}:{1:00}", minutes, seconds);
         timeText.text = "Time: " + timeString;
+
+        /*if (Input.GetButtonDown("Fire1"))
+        {
+            GamepadRestart();
+        }*/
     }
 
+ /*   public void GamepadRestart()
+    {
+        Gameover.SetActive(false);
+        WinCanvas.SetActive(false);
+        Menu.SetActive(false);
+        Time.timeScale = 1f;
+    }*/
     public void GameOver()
     {
         Time.timeScale = 0f;
