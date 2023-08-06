@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public int coins = 0;
+    public List<GameObject> Coins;
     public TextMeshProUGUI Points;
 
     public GameObject Gameover;
@@ -49,7 +50,15 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        Time.timeScale = 0f;
-        WinCanvas.SetActive(true);
+        if(Coins.Count == coins)
+        {
+            Time.timeScale = 0f;
+            WinCanvas.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("You not colleted all coins");
+        }
+        
     }
 }
