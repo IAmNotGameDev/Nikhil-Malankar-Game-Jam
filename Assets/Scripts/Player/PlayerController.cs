@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
         Vector2 moveDirection = new Vector2(moveInput, 0);
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
     }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
