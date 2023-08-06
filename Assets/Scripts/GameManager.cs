@@ -20,10 +20,15 @@ public class GameManager : MonoBehaviour
     public GameObject WinCanvas;
 
     public GameObject Menu;
+
+    public AudioSource GameoverAudio;
+
+    public GameObject claall;
     // Start is called before the first frame update
     private void Awake()
     {
-
+        claall.SetActive(false);
+        GameoverAudio.Stop();
             Instance = this;
        Time.timeScale = 0f;
 
@@ -61,6 +66,7 @@ public class GameManager : MonoBehaviour
     }*/
     public void GameOver()
     {
+        GameoverAudio.Play();
         Time.timeScale = 0f;
         Gameover.SetActive(true);
     }
@@ -79,7 +85,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You not colleted all coins");
+            claall.SetActive(true);
         }
         
     }

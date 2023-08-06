@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerHelper2 : MonoBehaviour
 {
     public float springForce = 10f; // Adjust the force to your liking
-
+    public AudioSource audioS;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            audioS.Play();
             Rigidbody2D playerRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
 
             if (playerRigidbody != null)
